@@ -1,0 +1,7 @@
+node_modules
+dist
+.playwright-mcp
+.hallmark
+.wrangler
+*.local
+.DS_Store
