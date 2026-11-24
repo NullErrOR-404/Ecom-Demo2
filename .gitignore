@@ -3,5 +3,6 @@ dist
 .playwright-mcp
 .hallmark
 .wrangler
+.cloudflare
 *.local
 .DS_Store
