@@ -114,19 +114,20 @@ export function StorefrontView() {
       {/* Asymmetric Full-Bleed Split Hero */}
       <section
         data-hero-section
-        className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 border-b border-[var(--gs-border)]"
+        className="w-full grid grid-cols-1 lg:grid-cols-12 border-b border-[var(--gs-border)]"
       >
-        <div className="lg:col-span-5 px-5 sm:px-10 py-10 lg:py-16 flex flex-col justify-between gap-10 min-w-0">
+        <div className="lg:col-span-5 px-[var(--gs-gutter)] py-10 lg:py-16 flex flex-col justify-between gap-10 min-w-0">
           <div className="space-y-5">
             <h1
               data-hero-stagger
-              className="font-display text-5xl sm:text-6xl leading-[1.04] font-medium text-[var(--gs-ink)] break-words"
+              style={{ fontSize: 'var(--gs-hero-title)' }}
+              className="font-display leading-[1.03] font-medium text-[var(--gs-ink)] break-words"
             >
               Objects chosen to be kept.
             </h1>
             <p
               data-hero-stagger
-              className="text-base text-[var(--gs-ink-secondary)] leading-relaxed max-w-md"
+              className="text-base lg:text-[17px] text-[var(--gs-ink-secondary)] leading-relaxed max-w-lg"
             >
               Hand-packed keepsake boxes, custom-engraved walnut frames, botanical hampers, and
               studio stoneware — finished with linen ribbon and a handwritten card.
@@ -150,7 +151,7 @@ export function StorefrontView() {
 
           <div data-hero-stagger className="pt-6 border-t border-[var(--gs-border)] space-y-2.5">
             <p className="text-xs text-[var(--gs-ink-muted)]">Departments</p>
-            <div className="grid grid-cols-2 gap-x-5 gap-y-1.5 text-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-1.5 text-sm">
               {DEPARTMENTS.map((dept) => (
                 <button
                   key={dept}
@@ -165,7 +166,7 @@ export function StorefrontView() {
           </div>
         </div>
 
-        <div className="lg:col-span-7 min-h-[340px] lg:min-h-[540px] bg-[var(--gs-surface-chip)] overflow-hidden">
+        <div className="lg:col-span-7 min-h-[clamp(300px,54vh,640px)] bg-[var(--gs-surface-chip)] overflow-hidden">
           <img
             data-hero-photo
             src="/images/sandalwood-box.jpg"
@@ -178,9 +179,9 @@ export function StorefrontView() {
       {/* Curated 2-Up Editorial Spread */}
       <section
         data-spread-section
-        className="max-w-[1440px] mx-auto px-5 sm:px-10 py-12 border-b border-[var(--gs-border)]"
+        className="w-full px-[var(--gs-gutter)] py-12 lg:py-16 border-b border-[var(--gs-border)]"
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-[clamp(1.25rem,2.5vw,2.5rem)]">
           <button
             data-spread-card
             type="button"
@@ -239,8 +240,8 @@ export function StorefrontView() {
         </div>
       </section>
 
-      {/* Borderless 4-Column Photo Catalog with Framer Motion Layout Filtering */}
-      <section id="catalog" className="max-w-[1440px] mx-auto px-5 sm:px-10 py-12 space-y-8">
+      {/* Fluid Auto-Adapting Photo Catalog with Framer Motion Layout Filtering */}
+      <section id="catalog" className="w-full px-[var(--gs-gutter)] py-12 lg:py-16 space-y-8">
         <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-4">
           <div className="flex flex-wrap items-center gap-2">
             {(['All', ...DEPARTMENTS] as const).map((dept) => (
@@ -286,7 +287,7 @@ export function StorefrontView() {
               <option value="above-3500">Above ₹3,500</option>
             </select>
 
-            <div className="relative">
+            <div className="relative flex-1 sm:flex-initial">
               <MagnifyingGlass
                 size={15}
                 weight="regular"
@@ -298,16 +299,13 @@ export function StorefrontView() {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search gifts..."
-                className="pl-9 pr-3 py-2 text-xs rounded-[4px] border border-[var(--gs-border-strong)] bg-[var(--gs-surface)] text-[var(--gs-ink)] w-44 sm:w-52"
+                className="pl-9 pr-3 py-2 text-xs rounded-[4px] border border-[var(--gs-border-strong)] bg-[var(--gs-surface)] text-[var(--gs-ink)] w-full sm:w-52"
               />
             </div>
           </div>
         </div>
 
-        <motion.div
-          layout
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10"
-        >
+        <motion.div layout className="fluid-catalog-grid">
           <AnimatePresence mode="popLayout" initial={false}>
             {filteredProducts.map((p, idx) => {
               const isOut = p.stock === 0;
@@ -414,7 +412,7 @@ export function StorefrontView() {
 
       {/* Editorial Footer */}
       <footer className="border-t border-[var(--gs-border)] mt-8">
-        <div className="max-w-[1440px] mx-auto px-5 sm:px-10 py-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-[var(--gs-ink-muted)]">
+        <div className="w-full px-[var(--gs-gutter)] py-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-[var(--gs-ink-muted)]">
           <div>
             <span className="font-display text-lg text-[var(--gs-ink)]">GiftShop</span>
             <span className="ml-3">Hand-packed gifts, linen wrap and custom brass engraving.</span>

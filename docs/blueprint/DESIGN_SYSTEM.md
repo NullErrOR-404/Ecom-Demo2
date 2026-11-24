@@ -83,6 +83,9 @@
 * **Never `transition: all`** — only transition `background-color`, `border-color`, `color`, `opacity`, or `transform`.
 * **Instant `:focus-visible`** (`2px solid var(--gs-accent)`, `outline-offset: 2px`) on every interactive control.
 * **Zero Pulsing Dots / Zero AI Copy:** No `animate-pulse`, no glowing status dots, no *"Live sync"* / *"Live database"* badges.
-* **Fluid Responsive Grid (`320px → 1920px`):**
-  * `html, body { overflow-x: clip; }` (never `100vw`).
-  * Full-width container capped at `1440px` (`px-5 sm:px-10`), hero visible above the fold at `1280×800`, zero cramped narrow desktop tubes.
+* **Fluid Full-Viewport Architecture (`320px → 2560px`):**
+  * `html, body { overflow-x: clip; }` (never `100vw`, zero centered `1440px` tube box).
+  * Fluid viewport gutters `--gs-gutter: clamp(1rem, 3vw, 4rem)` and fluid display type `--gs-hero-title: clamp(2.5rem, 4.2vw, 4.75rem)`.
+  * Catalog uses `.fluid-catalog-grid` (`repeat(auto-fill, minmax(min(100%, 270px), 1fr))`) for smooth column reflow across phones, tablets, laptops, 1080p, and ultrawide screens.
+  * Admin uses a full-viewport desktop shell (`lg:grid-cols-[240px_minmax(0,1fr)]`).
+  * **Lenis Smooth Scroll** (`src/lib/useLenis.ts`, `lerp: 0.09`) synced to `gsap.ticker` & `ScrollTrigger.update`, automatically paused inside open `<dialog>` overlays (`data-lenis-prevent`) and disabled under `prefers-reduced-motion: reduce`.

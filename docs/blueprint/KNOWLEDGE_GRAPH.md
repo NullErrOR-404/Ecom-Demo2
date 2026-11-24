@@ -23,6 +23,7 @@ flowchart TD
   Seed["src/data/seed.ts (8 unique-photo products + 10 seeded 90-day INR orders)"]
   Format["src/lib/format.ts (INR en-IN formatter)"]
   Motion["src/lib/motion.ts (GSAP + Framer Motion timing/easing tokens)"]
+  Lenis["src/lib/useLenis.ts (Lenis smooth scroll synced to GSAP ticker + dialog lock)"]
 
   App --> Header
   App --> Store

@@ -12,19 +12,19 @@ export function Header() {
       className="sticky top-0 z-30 border-b border-[var(--gs-border)]"
       style={{ backgroundColor: 'rgba(244, 239, 230, 0.96)' }}
     >
-      <div className="max-w-[1440px] mx-auto px-3 sm:px-10 h-16 flex items-center justify-between gap-2 sm:gap-4">
+      <div className="w-full px-2.5 sm:px-[var(--gs-gutter)] h-16 flex items-center justify-between gap-1.5 sm:gap-4">
         <button
           type="button"
           onClick={() => setMode('storefront')}
-          className="flex items-center gap-2 text-left shrink-0"
+          className="flex items-center gap-1.5 sm:gap-2 text-left shrink-0"
         >
-          <Gift size={19} weight="light" className="text-[var(--gs-accent)]" aria-hidden="true" />
-          <span className="font-display text-xl sm:text-2xl font-medium tracking-tight text-[var(--gs-ink)]">
+          <Gift size={18} weight="light" className="text-[var(--gs-accent)]" aria-hidden="true" />
+          <span className="font-display text-lg sm:text-2xl font-medium tracking-tight text-[var(--gs-ink)]">
             GiftShop
           </span>
         </button>
 
-        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+        <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
           <div
             role="tablist"
             aria-label="Workspace mode"

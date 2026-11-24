@@ -64,6 +64,7 @@ export function ModalDialog({
       ref={ref}
       aria-label={ariaLabel}
       onClose={onClose}
+      data-lenis-prevent
       {...({ closedby: 'any' } as Record<string, string>)}
       className={variantClasses}
     >

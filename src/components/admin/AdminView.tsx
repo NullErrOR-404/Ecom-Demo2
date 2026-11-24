@@ -17,9 +17,9 @@ export function AdminView() {
   ];
 
   return (
-    <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 min-h-[calc(100vh-64px)]">
+    <div className="w-full grid grid-cols-1 lg:grid-cols-[240px_minmax(0,1fr)] min-h-[calc(100vh-64px)]">
       {/* Left Sidebar Rail */}
-      <aside className="lg:col-span-2 border-b lg:border-b-0 lg:border-r border-[var(--gs-border)] bg-[var(--gs-surface-muted)]/70 p-4 sm:p-5">
+      <aside className="border-b lg:border-b-0 lg:border-r border-[var(--gs-border)] bg-[var(--gs-surface-muted)]/70 px-[var(--gs-gutter)] lg:px-5 py-4 lg:py-6">
         <p className="hidden lg:block text-xs text-[var(--gs-ink-muted)] px-3 pb-2.5">
           Store operations
         </p>
@@ -55,7 +55,7 @@ export function AdminView() {
       </aside>
 
       {/* Main Admin Workspace */}
-      <main className="lg:col-span-10 p-5 sm:p-8 min-w-0">
+      <main className="px-[var(--gs-gutter)] py-6 sm:py-8 min-w-0">
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={adminTab}

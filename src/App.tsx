@@ -4,6 +4,7 @@ import { Header } from './components/Header';
 import { CartDrawer } from './components/storefront/CartDrawer';
 import { StorefrontView } from './components/storefront/StorefrontView';
 import { EASE_IN, EASE_OUT, TIMING } from './lib/motion';
+import { useLenis } from './lib/useLenis';
 import { useDemoStore } from './store/demoStore';
 
 const AdminView = lazy(() =>
@@ -12,6 +13,7 @@ const AdminView = lazy(() =>
 
 export default function App() {
   const { mode, toast, dismissToast } = useDemoStore();
+  useLenis(mode);
 
   return (
     <MotionConfig reducedMotion="user">
@@ -39,7 +41,7 @@ export default function App() {
             >
               <Suspense
                 fallback={
-                  <div className="max-w-[1440px] mx-auto px-5 sm:px-10 py-16 text-xs text-[var(--gs-ink-muted)]">
+                  <div className="w-full px-[var(--gs-gutter)] py-16 text-xs text-[var(--gs-ink-muted)]">
                     Loading store operations…
                   </div>
                 }
